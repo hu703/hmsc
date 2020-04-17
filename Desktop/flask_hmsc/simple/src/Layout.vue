@@ -1,0 +1,140 @@
+<template>
+  <div class='body'>
+    <div class="app_head">
+      <div class="app_head_inner">
+        <img src="./assets/logo.png" alt=""><span class='app-title'>王者英雄历史</span>
+        <div class="head-nav">
+          <ul class='nav-list'>
+            <li v-on:click="showLogin">登陆</li>
+            <li class='pile'>|</li>
+            <li>注册</li>
+            <li class='pile'>|</li>
+            <li>关于</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="app_content">
+      <router-view></router-view>
+    </div>
+    <div class="app_footer">
+      <p>&copy; prowered by 1903c - 2020</p>
+    </div>
+    <my-login v-show="isShowLogin"></my-login>
+  </div>
+</template>
+
+<script>
+import MyLogin from './components/login'
+export default {
+  components:{
+    MyLogin
+  },
+  data(){
+    return {
+      isShowLogin:false
+    }
+    
+  },
+  methods: {
+    showLogin(){
+      this.isShowLogin=true
+    }
+  },
+}
+</script>
+
+<style scoped>
+.body{
+  background: #f0f2f5;
+  font-size: 15px;
+  color: #444;
+  font-family: 幼圆;
+}
+.app_head{
+  background: #363636;
+  color: #b2b2b2;
+  height: 90px;
+  line-height: 90px;
+  width: 100%;
+}
+.app_head_inner{
+  width: 1200px;
+  height: 90px;
+  margin: 0 auto;
+}
+.app_head_inner img{
+  float: left;
+  width: 50px;
+  margin-top: 20px;
+}
+.head-nav{
+  float:right
+}
+.head-nav li{
+  float: left;
+  cursor: pointer;
+}
+.head-nav .pile{
+  padding: 0 10px;
+}
+.app_footer{
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+  width: 100%;
+  background: #e3e4e8;
+  margin-top: 30px;
+}
+.app_content{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* 重置样式 */
+html,body,div,span,applet,object,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	font-weight:normal;
+	vertical-align:baseline;
+}
+ol,ul,li {
+	list-style:none;
+}
+blockquote,q {
+	quotes:none;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+	content:'';
+	content:none;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+th,td {
+	vertical-align:middle;
+}
+/* custom */
+a {
+	outline:none;
+	color:#16418a;
+	text-decoration:none;
+-webkit-backface-visibility:hidden;
+}
+a:focus {
+	outline:none;
+}
+input:focus,select:focus,textarea:focus {
+	outline:-webkit-focus-ring-color auto 0;
+}
+.app-title{
+  color:#f0f2f5;
+  font-size:30px;
+  font-weight: bolder;
+  margin-left: 40px;
+}
+</style>
